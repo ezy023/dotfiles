@@ -1,4 +1,4 @@
-alias e="emacs"
+alias e="emacs -nw"
 
 # directory navigation
 alias ..="cd .."
