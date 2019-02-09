@@ -6,8 +6,12 @@ TERM=xterm-256color
 # If not running interactively, don't do anything
 [[ $- != *i* ]] && return
 
-# Start tmux if not already running
-[[ -z "$TMUX" ]] && tmux
+# If running in tty, do not start tmux
+if [[ "$(tty)" != /dev/tty* ]];
+then
+    # Start tmux if not already running
+    [[ -z "$TMUX" ]] && tmux
+fi
 
 # Source aliases if available
 aliases=~/.dotfiles/aliases.sh
